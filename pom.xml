@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-mongo-rest-api</module>
+        <module>spring-elasticseach</module>
     </modules>
 
     <properties>
