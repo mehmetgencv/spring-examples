@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -33,7 +34,7 @@ public class UserServiceImpl implements UserService {
         List<Address> addressList = new ArrayList<>();
         userDto.getAddresses().forEach(item -> {
             Address address = new Address();
-            address.setAddress(String.valueOf(item));
+            address.setAddress(item);
             address.setAddressType(Address.AddressType.OTHER);
             address.setActive(true);
             address.setUser(userDb);
@@ -51,8 +52,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getAll(UserDto userDto) {
-        return null;
+    public List<UserDto> getAll() {
+        List<User> users = userRepository.findAll();
+        List<UserDto> userDtos = new ArrayList<>();
+        users.forEach(item -> {
+            UserDto userDto = new UserDto();
+            userDto.setId(item.getId());
+            userDto.setName(item.getName());
+            userDto.setSurname(item.getSurname());
+            userDto.setAddresses(item.getAddresses().stream().map(Address::getAddress).collect(Collectors.toList()));
+            userDtos.add(userDto);
+        });
+        return userDtos;
     }
 
     @Override
