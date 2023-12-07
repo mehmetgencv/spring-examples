@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserDto save(UserDto userDto) {
-        Assert.isNull(userDto.getName(), "Name cannot be null");
+        // Assert.isNull(userDto.getName(), "Name cannot be null");
         User user = new User();
         user.setName(userDto.getName());
         user.setSurname(userDto.getSurname());
