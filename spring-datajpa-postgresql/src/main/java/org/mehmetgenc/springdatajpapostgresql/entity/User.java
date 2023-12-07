@@ -13,6 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode(of = {"id"})
+@ToString
 public class User {
 
     @jakarta.persistence.Id

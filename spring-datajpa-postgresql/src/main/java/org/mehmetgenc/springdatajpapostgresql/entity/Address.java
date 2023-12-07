@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EqualsAndHashCode(of = {"id"})
-
+@ToString
 public class Address implements Serializable {
 
     @Id
