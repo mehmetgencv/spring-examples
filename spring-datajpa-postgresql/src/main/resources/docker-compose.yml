@@ -9,4 +9,5 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_PASSWORD: example
+        POSTGRES_USER: javaDb
+        POSTGRES_PASSWORD: 12345
