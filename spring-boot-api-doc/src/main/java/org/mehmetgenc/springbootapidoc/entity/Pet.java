@@ -17,7 +17,7 @@ import java.util.Date;
 public class Pet {
     @ApiModelProperty(value = "Pet`s ID space")
     private int id;
-    @ApiModelProperty(value = "Pet`s Name space")
+    @ApiModelProperty(value = "Pet`s Name space ")
     private String name;
     @ApiModelProperty(value = "Pet`s date space")
     private Date date;
